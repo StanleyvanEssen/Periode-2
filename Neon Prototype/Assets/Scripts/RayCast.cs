@@ -6,11 +6,14 @@ public class RayCast : MonoBehaviour
 {
     private RaycastHit hit;
     public GameObject particle;
+    public GameObject particle2;
+    public WeaponSwitch check;
 
     // Use this for initialization
     void Start()
     {
-
+        check = GameObject.FindWithTag("MainCamera").GetComponent<WeaponSwitch>();
+        check.b = true;
     }
 
     // Update is called once per frame
@@ -22,9 +25,18 @@ public class RayCast : MonoBehaviour
             {
                 if (hit.transform.tag == "Sample Text")
                 {
-                    GameObject G = Instantiate(particle, hit.point, Quaternion.identity);
-                    Destroy(G, 1);
-                    hit.transform.gameObject.GetComponent<Health>().LoseHP(1);
+                    if (check.b)
+                    {
+                        GameObject G = Instantiate(particle, hit.point, Quaternion.identity);
+                        Destroy(G, 1);
+                        hit.transform.gameObject.GetComponent<Health>().LoseHP(1);
+                    }
+                    else
+                    {
+                        GameObject G = Instantiate(particle2, hit.point, Quaternion.identity);
+                        Destroy(G, 1);
+                        hit.transform.gameObject.GetComponent<Health>().LoseHP(1);
+                    }
                 }
             }
         }

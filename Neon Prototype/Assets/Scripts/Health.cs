@@ -5,6 +5,8 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int hp;
+    public Light l;
+    public Material Material1;
 
     // Use this for initialization
     void Start()
@@ -23,7 +25,8 @@ public class Health : MonoBehaviour
         hp -= dmg;
         if (hp <= 0)
         {
-            Destroy(gameObject);
+            gameObject.GetComponent<Renderer>().material = Material1;
+            Destroy(l);
         }
     }
 }
