@@ -7,37 +7,31 @@ public class RayCast : MonoBehaviour
     private RaycastHit hit;
     public GameObject particle;
     public GameObject particle2;
-    public WeaponSwitch check;
+    public WeaponSwitch checkWS;
+    public GameObject bullet1;
+    public GameObject bullet2;
+    public Transform barrel;
+    public Transform barrel2;
 
-    // Use this for initialization
     void Start()
     {
-        check = GameObject.FindWithTag("MainCamera").GetComponent<WeaponSwitch>();
-        check.b = true;
+        checkWS = GameObject.FindWithTag("MainCamera").GetComponent<WeaponSwitch>();
+        checkWS.b = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 1000f))
+            if (checkWS.b)
             {
-                if (hit.transform.tag == "Sample Text")
-                {
-                    if (check.b)
-                    {
-                        GameObject G = Instantiate(particle, hit.point, Quaternion.identity);
-                        Destroy(G, 1);
-                        hit.transform.gameObject.GetComponent<Health>().LoseHP(1);
-                    }
-                    else
-                    {
-                        GameObject G = Instantiate(particle2, hit.point, Quaternion.identity);
-                        Destroy(G, 1);
-                        hit.transform.gameObject.GetComponent<Health>().LoseHP(1);
-                    }
-                }
+                GameObject G = Instantiate(bullet1, barrel.transform.position, barrel.transform.rotation);
+                Destroy(G, 10);
+            }
+            else
+            {
+                GameObject G = Instantiate(bullet2, barrel2.transform.position, barrel2.transform.rotation);
+                Destroy(G, 10);
             }
         }
     }

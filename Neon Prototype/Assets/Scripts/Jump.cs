@@ -8,13 +8,11 @@ public class Jump : MonoBehaviour
     public Vector3 v;
     public int mayJump;
 
-    // Use this for initialization
     void Start ()
     {
         r = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (mayJump >= 1)

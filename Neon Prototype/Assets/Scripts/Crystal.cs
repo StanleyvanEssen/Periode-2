@@ -2,22 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Crystal : MonoBehaviour
 {
     public int hp;
     public Light l;
     public Material Material1;
+    public UpAndDown checkUAD;
 
-    // Use this for initialization
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        checkUAD = gameObject.GetComponent<UpAndDown>();
     }
 
     public void LoseHP(int dmg)
@@ -26,7 +20,9 @@ public class Health : MonoBehaviour
         if (hp <= 0)
         {
             gameObject.GetComponent<Renderer>().material = Material1;
+            gameObject.GetComponent<Rotator>().b = true;
             Destroy(l);
+            Destroy(checkUAD);
         }
     }
 }

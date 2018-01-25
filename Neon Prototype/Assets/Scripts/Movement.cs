@@ -9,13 +9,6 @@ public class Movement : MonoBehaviour
     public float ver;
     public float speed;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         hor = Input.GetAxis("Horizontal");

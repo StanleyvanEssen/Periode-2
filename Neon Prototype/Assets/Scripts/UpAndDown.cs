@@ -8,7 +8,6 @@ public class UpAndDown : MonoBehaviour
     public float count;
     public bool down;
 
-    // Update is called once per frame
     void Update()
     {
         if (count >= 0.2f)

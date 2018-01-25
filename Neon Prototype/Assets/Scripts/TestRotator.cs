@@ -10,13 +10,11 @@ public class TestRotator : MonoBehaviour
     public float speed;
     public Vector3 v2;
 
-    // Use this for initialization
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Cursor.visible = false;

@@ -8,13 +8,6 @@ public class WeaponSwitch : MonoBehaviour
     public GameObject Weapon2;
     public bool b;
 
-	// Use this for initialization
-	void Start ()
-    {
-
-	}
-	
-	// Update is called once per frame
 	void Update ()
     {
         if (Input.GetButtonDown("1"))
