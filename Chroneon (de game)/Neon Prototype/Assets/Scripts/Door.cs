@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
         {
             timer += Time.deltaTime;
             transform.Rotate(r * Time.deltaTime * speed);
-            if(timer >= 3)
+            if(timer >= 11.5f)
             {
                 alive = false;
             }
