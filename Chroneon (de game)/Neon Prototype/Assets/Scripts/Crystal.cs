@@ -8,6 +8,7 @@ public class Crystal : MonoBehaviour
     public Light l;
     public Material Material1;
     public UpAndDown checkUAD;
+    public GameObject ManholeCover;
 
     void Start()
     {
@@ -17,12 +18,14 @@ public class Crystal : MonoBehaviour
     public void LoseHP(int dmg)
     {
         hp -= dmg;
-        if (hp <= 0)
+        if (hp == 0)
         {
             gameObject.GetComponent<Renderer>().material = Material1;
             gameObject.GetComponent<Rotator>().b = true;
             Destroy(l);
             Destroy(checkUAD);
+            Destroy(ManholeCover);
+            GameObject.Find("Player").transform.position = GameObject.Find("Spawn").transform.position;
         }
     }
 }
