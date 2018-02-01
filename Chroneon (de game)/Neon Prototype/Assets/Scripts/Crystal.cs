@@ -26,6 +26,7 @@ public class Crystal : MonoBehaviour
             Destroy(checkUAD);
             Destroy(ManholeCover);
             GameObject.Find("Player").transform.position = GameObject.Find("Spawn").transform.position;
+            gameObject.GetComponent<AudioSource>().enabled = true;
         }
     }
 }
